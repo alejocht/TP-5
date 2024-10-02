@@ -4,7 +4,7 @@ public class Pelicula {
 	private final int id;
 	private String nombre;
 	private Categoria categoria;
-	private static int contador;
+	private static int contador = 1;
 	
 	
 	public Pelicula() {
@@ -19,7 +19,7 @@ public class Pelicula {
 		contador ++;
 	}
 	
-	public int getContador() {
+	public static int getContador() {
 		return contador;
 	}
 	public int getId() {
