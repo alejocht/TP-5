@@ -11,15 +11,16 @@ import javax.swing.JLabel;
 public class PanelListarPeliculas extends JPanel {
 
 	private DefaultListModel<Pelicula> listModel;
+	private JList list;
 	/**
 	 * Create the panel.
 	 */
 	public PanelListarPeliculas() {
 		setLayout(null);
-		
-		JList list = new JList();
+		list = new JList();
 		list.setBounds(116, 33, 284, 219);
 		add(list);
+		
 		
 		JLabel lblPeliculas = new JLabel("Peliculas");
 		lblPeliculas.setBounds(41, 135, 65, 14);
@@ -29,6 +30,6 @@ public class PanelListarPeliculas extends JPanel {
 
 	public void setDefaultListModel(DefaultListModel<Pelicula> listModel) {
 		this.listModel = listModel;
-		
+		list.setModel(listModel);
 	}
 }

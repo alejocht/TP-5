@@ -21,7 +21,7 @@ public class PanelAgregarPelicula extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
-	private ListModel<Pelicula> listModel;
+	private DefaultListModel<Pelicula> listModel;
 	private JComboBox<Categoria> cmbGenero;
 
 	/**
@@ -61,6 +61,7 @@ public class PanelAgregarPelicula extends JPanel {
 		cmbGenero.addItem(new Categoria(4, "Romantica"));
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		//Evento Aceptar
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Validacion
@@ -77,7 +78,15 @@ public class PanelAgregarPelicula extends JPanel {
 				}
 				
 				//accion
-					
+				Pelicula pelicula = new Pelicula();
+				pelicula.setNombre(txtNombre.getText());
+				pelicula.setCategoria((Categoria) cmbGenero.getSelectedItem());
+				
+				listModel.addElement(pelicula);
+				
+				txtNombre.setText("");
+				cmbGenero.setSelectedIndex(0);
+				lblNroID.setText(String.valueOf(Pelicula.getContador()));
 					
 			}
 		});
@@ -86,8 +95,8 @@ public class PanelAgregarPelicula extends JPanel {
 
 	}
 
-	public void setDefaultListModel(DefaultListModel<Pelicula> listModel2) {
-		this.listModel = listModel2;		
+	public void setDefaultListModel(DefaultListModel<Pelicula> listModel) {
+		this.listModel = listModel;		
 	}
 
 }
